@@ -1,0 +1,60 @@
+.scenario-page {
+    margin: auto;
+    width: 50%;
+    
+}
+.display{
+    display: flex;
+    justify-content: space-around;
+    background-color: #4b4a4a;
+}
+.input-container {
+    margin-bottom: 20px;
+}
+.input-container input {
+    padding: 10px;
+    width: 70%;
+    border: none; /* Remove border */
+    border-radius: 5px;
+    background-color: #000; /* Black background */
+    color: #fff; /* White text color */
+}
+
+.input-container input::placeholder {
+    color: #999;
+}
+.input-container label {
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 25px;
+    padding: 10px;
+    color: white;
+}
+.button-container {
+    margin-top: 20px; 
+    display: flex;
+}
+
+.button-container button {
+    margin-right: 10px;
+}
+.button-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-container button:hover {
+    background-color: #0056b3;
+}
+.scenarioNamee{
+    color: white;
+}
+h3{
+    color: white;
+    display: flex;
+    justify-content:space-around;
+}

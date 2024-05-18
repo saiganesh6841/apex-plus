@@ -1,0 +1,28 @@
+.homepage{
+    
+    padding-left: 230px;
+}
+.homepage label {
+    /* margin-bottom: 10px; */
+    margin-top: 20px;
+    margin-right: 86%;
+    color: white;
+    font-size: 20px; /* Adjust font size if needed */
+    font-weight: bold; /* Make label bold for better visibility */
+}
+
+.homepage select {
+    width: 200px; 
+    padding: 5px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); 
+    font-size: 16px;
+}
+.btn-COntainer{
+    display: flex;
+    justify-content: end;
+}
+body{
+    background-color: rgb(60, 52, 52);
+}

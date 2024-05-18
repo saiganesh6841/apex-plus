@@ -1,0 +1,42 @@
+{
+  "data": [
+    {
+      "scenarioName": "test",
+      "time": "13",
+      "vehicles": [
+        {
+          "id": "8235bfff-610a-44a8-80eb-4f6ee47fe813",
+          "vehicleName": "bus",
+          "positionX": "408",
+          "positionY": "322",
+          "speed": "40",
+          "direction": "Backwards"
+        },
+        {
+          "id": "c18c6c20-b130-4f5a-90e7-7b3c36649167",
+          "vehicleName": "car",
+          "positionX": "200",
+          "positionY": "700",
+          "speed": "50",
+          "direction": "Backwards"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "scenarioName": "scenario",
+      "time": "20",
+      "vehicles": [
+        {
+          "id": "3214888a-b8bb-4b62-80b2-a507ebf95a1b",
+          "vehicleName": "bike",
+          "positionX": "100",
+          "positionY": "600",
+          "speed": "60",
+          "direction": "Towards"
+        }
+      ],
+      "id": 2
+    }
+  ]
+}
