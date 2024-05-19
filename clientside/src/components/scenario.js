@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "./scenario.css";
 import { useLocation, useNavigate } from "react-router-dom";
+import { baseURL } from "../App";
 
 const ScenarioPage = () => {
     const [scenarioName, setScenarioName] = useState("");
@@ -16,7 +17,7 @@ const ScenarioPage = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:5000/api/data");
+                const response = await axios.get(`${baseURL}/api/data`);
                 setScenarios(response.data);
                 if (editingScenario) {
                     setScenarioName(editingScenario.scenarioName);
@@ -54,9 +55,9 @@ const ScenarioPage = () => {
         try {
             const formData = { scenarioName, time, vehicles: editingScenario ? editingScenario.vehicles : [] };
             if (editingScenario) {
-                await axios.put(`http://localhost:5000/api/data/${editingScenario.id}`, formData);
+                await axios.put(`${baseURL}/api/data/${editingScenario.id}`, formData);
             } else {
-                await axios.post("http://localhost:5000/api/data", formData);
+                await axios.post(`${baseURL}/api/data`, formData);
             }
             navigate(-1); // Go back to the previous page
         } catch (error) {

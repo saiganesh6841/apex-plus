@@ -5,6 +5,7 @@ import edit from "../logos/edd.png"
 import add from "../logos/add.png"
 import del from "../logos/delete.png"
 import { useNavigate } from "react-router-dom";
+import { baseURL } from "../App";
 
 const AllScenarioPage = () => {
 
@@ -12,7 +13,7 @@ const AllScenarioPage = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/data')
+        fetch(`${baseURL}/api/data`)
             .then(response => response.json())
             .then(data => {
                 setScenarios(data);
@@ -24,7 +25,7 @@ const AllScenarioPage = () => {
 
     //to delete particular scenario
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/api/data/${id}`, {
+        fetch(`${baseURL}/api/data/${id}`, {
             method: 'DELETE'
         })
             .then(response => {
@@ -42,7 +43,7 @@ const AllScenarioPage = () => {
     //to delete all scenarios
     const handleDeleteAll = () => {
         Promise.all(scenarios.map(scenario =>
-            fetch(`http://localhost:5000/api/data/${scenario.id}`, {
+            fetch(`${baseURL}/api/data/${scenario.id}`, {
                 method: 'DELETE'
             })
         ))

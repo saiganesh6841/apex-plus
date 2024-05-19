@@ -3,6 +3,7 @@ import "./vehicle.css"
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { v4 as uuidv4 } from 'uuid';
+import { baseURL } from "../App";
 
 
 
@@ -25,7 +26,7 @@ const VehiclePage = () => {
 
     useEffect(() => {
         // Fetch the scenario data from the API
-        axios.get('http://localhost:5000/api/data')
+        axios.get(`${baseURL}/api/data`)
             .then(response => {
                 const scenariosData = response.data;
                 setScenarios(scenariosData)
@@ -66,11 +67,19 @@ const VehiclePage = () => {
 
     const validatePositions = () => {
         const newErrors = {};
+        if (!vehicleName) {
+            newErrors.vehicleName = 'Vehicle Name is required';
+        }
         if (positionX < 0 || positionX > 800) {
             newErrors.positionX = 'Position X should not be > 800 and < 0';
         }
         if (positionY < 0 || positionY > 800) {
             newErrors.positionY = 'Position Y should not be > 800 and < 0';
+        }
+        if (!speed) {
+            newErrors.speed = 'Speed is required';
+        } else if (isNaN(speed) || speed <= 0) {
+            newErrors.speed = 'Speed must be a positive number';
         }
         return newErrors;
     };
@@ -100,12 +109,12 @@ const VehiclePage = () => {
             };
             console.log(vehicle)
             try {
-                const response = await axios.get(`http://localhost:5000/api/data/${sceneId}`);
+                const response = await axios.get(`${baseURL}/api/data/${sceneId}`);
                 const selectedScenarioData = response.data;
 
                 // Append the new vehicle to the existing vehicles list
                 selectedScenarioData.vehicles.push(vehicle);
-                const result = await axios.put(`http://localhost:5000/api/data/${sceneId}`, selectedScenarioData);
+                const result = await axios.put(`${baseURL}/api/data/${sceneId}`, selectedScenarioData);
                 console.log('Scenario updated successfully:', result.data);
                 navigate("/")
                 // Optionally, you can navigate to another page or reset the form here
@@ -125,6 +134,7 @@ const VehiclePage = () => {
         setPositionY("")
         setSpeed("")
         setSelectedScenario("")
+        setErrors({});
     };
 
     const handleGoBack = () => {
@@ -153,11 +163,13 @@ const VehiclePage = () => {
                             <label>
                                 Vehicle Name:
                                 <input type="text" value={vehicleName} placeholder="Target ABC" onChange={(e) => setVehicleName(e.target.value)} />
+                                {errors.vehicleName && <span className="error">{errors.vehicleName}</span>}
 
                             </label>
                             <label>
                                 Speed:
                                 <input type="text" value={speed} placeholder="20" onChange={(e) => setSpeed(e.target.value)} />
+                                {errors.speed && <span className="error">{errors.speed}</span>}
                             </label>
                         </div>
                         <div className="form-row">

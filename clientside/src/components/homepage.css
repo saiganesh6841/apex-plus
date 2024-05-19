@@ -26,3 +26,11 @@
 body{
     background-color: rgb(60, 52, 52);
 }
+.chart-container{
+    background-color: grey;
+    
+}
+#vehicleChart{
+    height: 400px;
+    background-color: rgb(203, 171, 171);
+}
