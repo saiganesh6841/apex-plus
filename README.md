@@ -13,11 +13,10 @@ A React.js application to create, display, update, and delete scenarios and vehi
   ## Installation
 
 1. Clone the repository
-```bash
 2.git clone <https://github.com/saiganesh6841/apex-plus.git>
 3.cd apex-plus
 4.Install dependencies
-
+```bash
 # Project Structure
 
 vehicle-scenario-simulator
